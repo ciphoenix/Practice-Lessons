@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Palindrome", "Palindrome\Pa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Compare String", "Compare String\Compare String.vcxproj", "{F8F7C64F-B752-4D7A-AACF-6586E4504A17}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Area of Rectangle", "Area of Rectangle\Area of Rectangle.vcxproj", "{246FD72C-E635-476B-A924-7AD722939C35}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{F8F7C64F-B752-4D7A-AACF-6586E4504A17}.Release|x64.Build.0 = Release|x64
 		{F8F7C64F-B752-4D7A-AACF-6586E4504A17}.Release|x86.ActiveCfg = Release|Win32
 		{F8F7C64F-B752-4D7A-AACF-6586E4504A17}.Release|x86.Build.0 = Release|Win32
+		{246FD72C-E635-476B-A924-7AD722939C35}.Debug|x64.ActiveCfg = Debug|x64
+		{246FD72C-E635-476B-A924-7AD722939C35}.Debug|x64.Build.0 = Debug|x64
+		{246FD72C-E635-476B-A924-7AD722939C35}.Debug|x86.ActiveCfg = Debug|Win32
+		{246FD72C-E635-476B-A924-7AD722939C35}.Debug|x86.Build.0 = Debug|Win32
+		{246FD72C-E635-476B-A924-7AD722939C35}.Release|x64.ActiveCfg = Release|x64
+		{246FD72C-E635-476B-A924-7AD722939C35}.Release|x64.Build.0 = Release|x64
+		{246FD72C-E635-476B-A924-7AD722939C35}.Release|x86.ActiveCfg = Release|Win32
+		{246FD72C-E635-476B-A924-7AD722939C35}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
