@@ -6,7 +6,7 @@ using std::cout;
 using std::cin;
 
 double length, width;
-Rectangle newRectangle;
+Rectangle newRectangle; // new instance of Rectangle
 
 int main()
 {
