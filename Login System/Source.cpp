@@ -71,10 +71,13 @@ void createAccount()
 	if (resp == 'Y')
 	{
 		serialNumber++;
+		system("cls");
 		createAccount();
 	}
-	else
+	else {
+		system("cls");
 		loginAccount();
+	}
 }
 
 void loginAccount()
