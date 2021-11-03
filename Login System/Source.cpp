@@ -93,7 +93,7 @@ bool readFiles()
 void begin()
 {
 	int choice;
-	cout << "1: Set up an account" << endl << "2: Sign in to your account" << endl << "what would you like to do: ";
+	cout << "1: Set up an account" << endl << "2: Sign in to your account" << endl << "3. Exit Program" << endl << "what would you like to do: ";
 	cin >> choice;
 	switch (choice)
 	{
@@ -104,6 +104,9 @@ void begin()
 	case 2:
 		loginAccount();
 		system("cls");
+		break;
+	case 3:
+		writeToFile();
 		break;
 	default:
 		cout << "invalid entry";
