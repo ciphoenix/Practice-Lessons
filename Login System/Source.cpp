@@ -52,7 +52,6 @@ void createFile()
 
 void writeToFile()
 {
-	string username, password;
 	fstream MyUsernames("usernames.txt");
 	fstream MyPasswords("passwords.txt");
 	MyUsernames.open("usernames.txt");
@@ -60,9 +59,6 @@ void writeToFile()
 	for (int i = 0; i < usernames.size(); i++)
 	{
 		MyUsernames << usernames[i] << endl;
-	}
-	for (int i = 0; i < passwords.size(); i++)
-	{
 		MyPasswords << passwords[i] << endl;
 	}
 	MyUsernames.close();
