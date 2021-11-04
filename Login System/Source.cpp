@@ -52,16 +52,19 @@ void createFile()
 
 void writeToFile()
 {
-	fstream MyUsernames("usernames.txt");
-	fstream MyPasswords("passwords.txt");
+	ofstream MyUsernames;
+	ofstream MyPasswords;
 	MyUsernames.open("usernames.txt");
 	MyPasswords.open("passwords.txt");
 	for (int i = 0; i < usernames.size(); i++)
 	{
 		MyUsernames << usernames[i] << endl;
 		MyPasswords << passwords[i] << endl;
+		
 	}
+	MyUsernames.flush();
 	MyUsernames.close();
+	MyPasswords.flush();
 	MyPasswords.close();
 
 	
@@ -70,8 +73,8 @@ void writeToFile()
 bool readFiles()
 {
 	string username, password;
-	ifstream MyUsernames("usernames.txt");
-	ifstream MyPasswords("passwords.txt");
+	ifstream MyUsernames;
+	ifstream MyPasswords;
 	MyUsernames.open("usernames.txt");
 	MyPasswords.open("passwords.txt");
 	while (getline(MyUsernames, username))
