@@ -12,7 +12,7 @@ using std::endl;
 using std::ofstream;
 using std::ifstream;
 using std::getline;
-
+using std::fstream;
 
 int serialNumber = 1;
 int recordIndex;
@@ -53,8 +53,8 @@ void createFile()
 void writeToFile()
 {
 	string username, password;
-	ofstream MyUsernames("usernames.txt");
-	ofstream MyPasswords("passwords.txt");
+	fstream MyUsernames("usernames.txt");
+	fstream MyPasswords("passwords.txt");
 	MyUsernames.open("usernames.txt");
 	MyPasswords.open("passwords.txt");
 	for (int i = 0; i < usernames.size(); i++)
@@ -76,7 +76,8 @@ bool readFiles()
 	string username, password;
 	ifstream MyUsernames("usernames.txt");
 	ifstream MyPasswords("passwords.txt");
-
+	MyUsernames.open("usernames.txt");
+	MyPasswords.open("passwords.txt");
 	while (getline(MyUsernames, username))
 	{
 		usernames.push_back(username);
