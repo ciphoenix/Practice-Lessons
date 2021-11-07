@@ -5,7 +5,6 @@ int Reg_ID = 1;
 vector<Patient> Patients;
 
 void createNewPatient();
-void seeAllPatientData();
 void viewPatientData();
 void startPage();
 void backToStart();
