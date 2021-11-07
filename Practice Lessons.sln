@@ -19,6 +19,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Login System", "Login Syste
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Factorial of a Number", "Code Beauty\Code Beauty.vcxproj", "{C287ACEB-83B9-45EF-B780-FD0DCC473618}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Patient Management System", "Student Management System\Student Management System.vcxproj", "{690C74CA-282B-4AA9-8F7B-B709D3811C8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
