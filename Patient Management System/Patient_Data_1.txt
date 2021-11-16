@@ -1,0 +1,6 @@
+Registration Number: 1
+Name: Joshua Okolie
+Age: 29
+Gender: M
+Address: Lagos
+Occupation: Doctor

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Number Guessing Game", "Number Guessing Game\Number Guessing Game.vcxproj", "{BF1BEA0E-F144-4A6C-AB96-9CD1A453BF82}"
 EndProject
@@ -17,11 +17,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Summation", "Summation\Summ
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Login System", "Login System\Login System.vcxproj", "{E938D7F2-31E2-4AB6-A419-F68189E89DFE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Factorial of a Number", "Code Beauty\Code Beauty.vcxproj", "{C287ACEB-83B9-45EF-B780-FD0DCC473618}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Patient Management System", "Student Management System\Student Management System.vcxproj", "{690C74CA-282B-4AA9-8F7B-B709D3811C8E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Patient Management System 1.1", "Patient Management System 1.1\Patient Management System 1.1.vcxproj", "{F0463993-7037-4CA4-AD84-2C845DFCA7C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,22 +83,14 @@ Global
 		{E938D7F2-31E2-4AB6-A419-F68189E89DFE}.Release|x64.Build.0 = Release|x64
 		{E938D7F2-31E2-4AB6-A419-F68189E89DFE}.Release|x86.ActiveCfg = Release|Win32
 		{E938D7F2-31E2-4AB6-A419-F68189E89DFE}.Release|x86.Build.0 = Release|Win32
-		{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}.Debug|x64.ActiveCfg = Debug|x64
-		{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}.Debug|x64.Build.0 = Debug|x64
-		{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}.Debug|x86.ActiveCfg = Debug|Win32
-		{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}.Debug|x86.Build.0 = Debug|Win32
-		{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}.Release|x64.ActiveCfg = Release|x64
-		{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}.Release|x64.Build.0 = Release|x64
-		{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}.Release|x86.ActiveCfg = Release|Win32
-		{534B110B-D4F5-4A7B-BDD6-017AF356F5BF}.Release|x86.Build.0 = Release|Win32
-		{690C74CA-282B-4AA9-8F7B-B709D3811C8E}.Debug|x64.ActiveCfg = Debug|x64
-		{690C74CA-282B-4AA9-8F7B-B709D3811C8E}.Debug|x64.Build.0 = Debug|x64
-		{690C74CA-282B-4AA9-8F7B-B709D3811C8E}.Debug|x86.ActiveCfg = Debug|Win32
-		{690C74CA-282B-4AA9-8F7B-B709D3811C8E}.Debug|x86.Build.0 = Debug|Win32
-		{690C74CA-282B-4AA9-8F7B-B709D3811C8E}.Release|x64.ActiveCfg = Release|x64
-		{690C74CA-282B-4AA9-8F7B-B709D3811C8E}.Release|x64.Build.0 = Release|x64
-		{690C74CA-282B-4AA9-8F7B-B709D3811C8E}.Release|x86.ActiveCfg = Release|Win32
-		{690C74CA-282B-4AA9-8F7B-B709D3811C8E}.Release|x86.Build.0 = Release|Win32
+		{F0463993-7037-4CA4-AD84-2C845DFCA7C8}.Debug|x64.ActiveCfg = Debug|x64
+		{F0463993-7037-4CA4-AD84-2C845DFCA7C8}.Debug|x64.Build.0 = Debug|x64
+		{F0463993-7037-4CA4-AD84-2C845DFCA7C8}.Debug|x86.ActiveCfg = Debug|Win32
+		{F0463993-7037-4CA4-AD84-2C845DFCA7C8}.Debug|x86.Build.0 = Debug|Win32
+		{F0463993-7037-4CA4-AD84-2C845DFCA7C8}.Release|x64.ActiveCfg = Release|x64
+		{F0463993-7037-4CA4-AD84-2C845DFCA7C8}.Release|x64.Build.0 = Release|x64
+		{F0463993-7037-4CA4-AD84-2C845DFCA7C8}.Release|x86.ActiveCfg = Release|Win32
+		{F0463993-7037-4CA4-AD84-2C845DFCA7C8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
