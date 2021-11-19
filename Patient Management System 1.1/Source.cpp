@@ -1,17 +1,20 @@
 #include "stdafx.h"
 
 
-int Reg_ID = 1;
 vector<Patient> Patients;
+int RegID;
 
 void createNewPatient();
 void viewPatientData();
 void startPage();
 void backToStart();
-
+void insertData(pqxx::work& DemoWork, string FirstName, string LastName, int age, string gender, string address, string occupation);
+//void viewDataBase(pqxx::work& DemoWork, std::string scope, std::string database);
+string initialiseDB(string DBName);
 
 int main()
 {
+
 	startPage();
 
 	return 0;
@@ -92,66 +95,58 @@ void viewPatientData()
 
 void createNewPatient()
 {
-	char choice = 'Y';
+	
+	string FirstName, LastName, Gender, Address, Occupation;
+	int Age;
 
-	ofstream RegFile;  //save current serial number to Register
-	RegFile.open("Register.txt");
 
-	while (choice == 'Y')
+	cout << "First Name: ";
+	cin >> FirstName;
+	cout << "Last Name: ";
+	cin >> LastName;
+	cin.ignore();
+	cout << "Address: ";
+	getline(cin, Address);
+	cout << "Gender(M/F): ";
+	cin >> Gender;
+	cout << "Age(Years): ";
+	cin >> Age;
+	cin.ignore();
+	cout << "Occupation: ";
+	getline(cin, Occupation);
+
+	string Connect = initialiseDB("PatientRecords");
+
+	try
 	{
-		string FirstName, LastName, Address, Occupation, filename;
-		int Age;
-		char Gender;
+		pqxx::connection connectionObject(Connect.c_str());
 
-		RegFile << Reg_ID << endl;
+		pqxx::work worker(connectionObject);
 
+		insertData(worker, FirstName, LastName, Age, Gender, Address, Occupation);
 
-		cout << "First Name: ";
-		cin >> FirstName;
-		cout << "Last Name: ";
-		cin >> LastName;
-		cin.ignore();
-		cout << "Address: ";
-		getline(cin, Address);
-		cout << "Gender(M/F): ";
-		cin >> Gender;
-		cout << "Age(Years): ";
-		cin >> Age;
-		cin.ignore();
-		cout << "Occupation: ";
-		getline(cin, Occupation);
-
-		Patient PatientData(Reg_ID, FirstName, LastName, Address, Gender, Age, Occupation);
-		Patients.push_back(PatientData);
-
-
-		filename = "Patient_Data_" + std::to_string(Reg_ID);
-		string extension = ".txt";
-
-		ofstream newFile;
-		filename = filename + extension;
-		newFile.open(filename.c_str());
-		newFile.close();
-
-		ofstream DataFile;
-		DataFile.open(filename.c_str());
-		DataFile << "Hospital ID Number: " << Reg_ID << endl;
-		DataFile << "Name: " << FirstName << " " << LastName << endl;
-		DataFile << "Age: " << Age << endl;
-		DataFile << "Gender: " << Gender << endl;
-		DataFile << "Address: " << Address << endl;
-		DataFile << "Occupation: " << Occupation << endl;
-		DataFile.close();
-
-		cout << "Record created for " << FirstName << " " << LastName << " with Hospital ID Number: " << Reg_ID << endl;
-
-		Reg_ID++;
-
-		cout << "Create Another? Y/N: ";
-		cin >> choice;
+		worker.commit();
+		
+		cout << "Record created for " << FirstName << " " << LastName << "\nHospital ID is " << RegID << endl;
 	}
-
-	RegFile.close(); //Close Register File
-
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	backToStart();
+}
+
+void insertData(pqxx::work& DemoWork, string FirstName, string LastName, int age, string gender, string address, string occupation)
+{
+
+	string query = "INSERT INTO Patient_Data (firstname, lastname, age, gender, address, occupation)VALUES ('"
+		+ FirstName + "', '" + LastName + "', " + to_string(age) + ", '" + gender + "', '" + address + "', '" + occupation + "') returning hospital_id_number;";
+	pqxx::result response = DemoWork.exec(query.c_str());
+	RegID = response[0][0].as<int>();	
+}
+
+string initialiseDB(string DBName)
+{
+	std::string connectionString = "host=localhost port=5432 dbname=" + DBName + " user=postgres password =G0r0k233.dll";
+	return connectionString;
 }

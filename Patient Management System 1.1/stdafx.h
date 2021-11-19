@@ -4,6 +4,8 @@
 #include "Patient.h"
 #include <vector>
 #include <fstream>
+#include <sstream>
+#include <pqxx/pqxx>
 
 using std::cout;
 using std::cin;
@@ -14,3 +16,4 @@ using std::getline;
 using std::fstream;
 using std::ofstream;
 using std::ifstream;
+using std::to_string;
