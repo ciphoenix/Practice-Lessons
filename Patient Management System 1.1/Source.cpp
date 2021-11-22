@@ -1,19 +1,19 @@
 #include "stdafx.h"
 
-
-vector<Patient> Patients;
 int RegID;
 
 void createNewPatient();
 void viewPatientData();
 void startPage();
 void backToStart();
-void insertData(pqxx::work& DemoWork, string FirstName, string LastName, int age, string gender, string address, string occupation);
+void insertNewBioData(pqxx::work& DemoWork, string FirstName, string LastName, int age, string gender, string address, string occupation);
 //void viewDataBase(pqxx::work& DemoWork, std::string scope, std::string database);
 string initialiseDB(string DBName);
+string Connect = initialiseDB("PatientRecords");
 
 int main()
 {
+
 
 	startPage();
 
@@ -71,24 +71,30 @@ void viewPatientData()
 	cout << "Enter Patient's ID Number: ";
 	cin >> index;
 
-	ifstream RegFile("Register.txt"); //Check If That Number Exists
-	int RegNum;
-	while (RegFile >> RegNum) //Check register line by line for presence of the requested number
+
+	try
 	{
-		if (RegNum != index)
-			cout << "Patient Records Not Found!";
-	}
+		pqxx::connection connectionObject(Connect.c_str());
 
-	string PatientInfo;
-	string filename = "Patient_Data_" + std::to_string(index) + ".txt";
-	ifstream DataFile;
-	DataFile.open(filename);
-	while (getline(DataFile, PatientInfo)) // Read Data File Line by line and print it out
+		pqxx::work worker(connectionObject);
+
+		string query = "SELECT * FROM Bio_Data WHERE hospital_id_number = " + to_string(index) + ";";
+		pqxx::result response = worker.exec(query.c_str());
+
+		cout << endl;
+		cout << "Hospital ID Number:____" << response[0][0] << endl;
+		cout << "Name:__________________" << response[0][1] << " " << response[0][2] << endl;
+		cout << "Age:___________________" << response[0][3] << endl;
+		cout << "Gender:________________" << response[0][4] << endl;
+		cout << "Address:_______________" << response[0][5] << endl;
+		cout << "Occupation:____________" << response[0][6] << endl;
+
+		worker.commit();
+	}
+	catch (const std::exception& e)
 	{
-		cout << PatientInfo << endl;
+		std::cerr << e.what() << std::endl;
 	}
-
-
 
 	backToStart();
 }
@@ -115,15 +121,14 @@ void createNewPatient()
 	cout << "Occupation: ";
 	getline(cin, Occupation);
 
-	string Connect = initialiseDB("PatientRecords");
-
+	
 	try
 	{
 		pqxx::connection connectionObject(Connect.c_str());
 
 		pqxx::work worker(connectionObject);
 
-		insertData(worker, FirstName, LastName, Age, Gender, Address, Occupation);
+		insertNewBioData(worker, FirstName, LastName, Age, Gender, Address, Occupation);
 
 		worker.commit();
 		
@@ -136,10 +141,10 @@ void createNewPatient()
 	backToStart();
 }
 
-void insertData(pqxx::work& DemoWork, string FirstName, string LastName, int age, string gender, string address, string occupation)
+void insertNewBioData(pqxx::work& DemoWork, string FirstName, string LastName, int age, string gender, string address, string occupation)
 {
 
-	string query = "INSERT INTO Patient_Data (firstname, lastname, age, gender, address, occupation)VALUES ('"
+	string query = "INSERT INTO Bio_Data (firstname, lastname, age, gender, address, occupation)VALUES ('"
 		+ FirstName + "', '" + LastName + "', " + to_string(age) + ", '" + gender + "', '" + address + "', '" + occupation + "') returning hospital_id_number;";
 	pqxx::result response = DemoWork.exec(query.c_str());
 	RegID = response[0][0].as<int>();	
