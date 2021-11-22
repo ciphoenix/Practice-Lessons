@@ -7,7 +7,8 @@ void viewPatientData();
 void startPage();
 void backToStart();
 void insertNewBioData(pqxx::work& DemoWork, string FirstName, string LastName, int age, string gender, string address, string occupation);
-//void viewDataBase(pqxx::work& DemoWork, std::string scope, std::string database);
+void viewAllPatients();
+
 string initialiseDB(string DBName);
 string Connect = initialiseDB("PatientRecords");
 
@@ -24,7 +25,8 @@ void startPage()
 	cout << "\n\n\n**********MENU**********" << endl;
 	cout << "1. Create New Patient Record\n";
 	cout << "2. View Specific Patient Data\n";
-	cout << "3. Exit Program\n\n";
+	cout << "3. View All Patients\n";
+	cout << "4. Exit Program\n\n";
 
 	cout << "Choose an option: ";
 	cin >> choice;
@@ -38,8 +40,10 @@ void startPage()
 		viewPatientData();
 		break;
 	case 3:
+		viewAllPatients();
 		break;
-
+	case 4:
+		break;
 	default:
 	{
 		cout << "Invalid option. Try again";
@@ -146,4 +150,33 @@ string initialiseDB(string DBName)
 {
 	std::string connectionString = "host=localhost port=5432 dbname=" + DBName + " user=postgres password =G0r0k233.dll";
 	return connectionString;
+}
+
+void viewAllPatients()
+{
+	try
+	{
+		pqxx::connection connectionObject(Connect.c_str());
+
+		pqxx::work worker(connectionObject);
+
+		string query = "SELECT FirstName, LastName FROM Bio_Data;";
+		pqxx::result response = worker.exec(query.c_str());
+
+		cout << endl;
+		int counter = 1;
+
+		for (int i = 0; i < response.size(); i++)
+		{
+			cout << counter << ". " << response[i][0] << " " << response[i][1] << endl;
+			counter++;
+		}
+
+		worker.commit();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	backToStart();
 }
