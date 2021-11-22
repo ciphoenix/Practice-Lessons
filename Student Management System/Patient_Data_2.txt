@@ -1,6 +1,0 @@
-Registration Number: 2
-Name: Solomon Okolie
-Age: 32
-Gender: M
-Address: Lunsk
-Occupation: Software Developer
