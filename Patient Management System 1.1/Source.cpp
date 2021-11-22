@@ -13,13 +13,10 @@ string Connect = initialiseDB("PatientRecords");
 
 int main()
 {
-
-
 	startPage();
 
 	return 0;
 }
-
 
 void startPage()
 {
@@ -71,7 +68,6 @@ void viewPatientData()
 	cout << "Enter Patient's ID Number: ";
 	cin >> index;
 
-
 	try
 	{
 		pqxx::connection connectionObject(Connect.c_str());
@@ -101,10 +97,8 @@ void viewPatientData()
 
 void createNewPatient()
 {
-	
 	string FirstName, LastName, Gender, Address, Occupation;
 	int Age;
-
 
 	cout << "First Name: ";
 	cin >> FirstName;
@@ -120,7 +114,6 @@ void createNewPatient()
 	cin.ignore();
 	cout << "Occupation: ";
 	getline(cin, Occupation);
-
 	
 	try
 	{
@@ -143,7 +136,6 @@ void createNewPatient()
 
 void insertNewBioData(pqxx::work& DemoWork, string FirstName, string LastName, int age, string gender, string address, string occupation)
 {
-
 	string query = "INSERT INTO Bio_Data (firstname, lastname, age, gender, address, occupation)VALUES ('"
 		+ FirstName + "', '" + LastName + "', " + to_string(age) + ", '" + gender + "', '" + address + "', '" + occupation + "') returning hospital_id_number;";
 	pqxx::result response = DemoWork.exec(query.c_str());
