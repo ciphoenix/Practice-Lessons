@@ -29,7 +29,7 @@ void startPage()
 	cout << "4. Exit Program\n\n";
 
 	cout << "Choose an option: ";
-	cin >> choice;
+	cin >> choice; 
 
 	switch (choice)
 	{
